@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Regiistration</title>
+
+
+    
+    <style>
+
+        body{
+            background-color: rgb(255, 126, 169);
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #87e1ff;
+            border-radius: 5px;
+            box-shadow: #4CAF50;
+        }
+    
+        .form-container input[type="text"],
+        .form-container textarea,
+        .form-container input[type="number"],
+        .form-container input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ffffff;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+    
+        
+    
+        .form-container textarea {
+            resize: vertical;
+        }
+    
+        .form-container button[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(255, 255, 255);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+    </head>
+    <body>
+        
+    
+    <div class="form-container" style="margin-top: 70px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h1>Register A New Product</h1>
+    
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+    
+            <label for="Description">Description:</label>
+            <textarea name="Description" id="Description" cols="30" rows="10"></textarea>
+    
+            <label for="Price">Price:</label>
+            <input type="number" name="Price" id="Price">
+    
+            <label for="Image">Product Image:</label>
+            <input type="file" name="Image" id="Image">
+    
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+
+</body>
+</html>
