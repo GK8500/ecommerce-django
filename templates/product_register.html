@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Product Registration{% endblock title %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Regiistration</title>
-
-
     
     <style>
 
@@ -51,7 +47,7 @@
         }
     </style>
     </head>
-    <body>
+
         
     
     <div class="form-container" style="margin-top: 70px;">
@@ -63,19 +59,17 @@
             <input type="text" name="name" id="name">
     
             <label for="Description">Description:</label>
-            <textarea name="Description" id="Description" cols="30" rows="10"></textarea>
+            <textarea name="desc" id="Description" cols="30" rows="10"></textarea>
     
             <label for="Price">Price:</label>
-            <input type="number" name="Price" id="Price">
+            <input type="number" name="price" id="Price">
     
             <label for="Image">Product Image:</label>
-            <input type="file" name="Image" id="Image">
+            <input type="file" name="image" id="Image">
     
             <button type="submit">Submit</button>
         </form>
     </div>
     
+{% endblock body %}
 
-
-</body>
-</html>

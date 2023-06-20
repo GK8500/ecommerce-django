@@ -1,14 +1,23 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .models import *
 
+@login_required(login_url="/login_page/")
 # Create your views here.
 
 def index(request):
+    queryset = Product.objects.all()
+    context = {'product' : queryset}
+
+    return render(request, 'index.html', context)
+
 
 #  check if user is logged in or not
-    return render(request, 'index.html')
+    # return render(request, 'index.html')
 
 def product(request):
 
@@ -16,6 +25,22 @@ def product(request):
     return render(request, 'product.html')
 
 def product_register(request):
+    if request.method == "POST":
+        data = request.POST
+        name = data.get('name')
+        price = data.get('price')
+        desc = data.get('desc')
+        image = request.FILES.get('image')
+
+        Product.objects.create(
+            name = name,
+            price = price,
+            desc = desc,
+            image = image,
+        )
+        queryset = Product.objects.all()
+        context = {'product' : queryset}
+        return redirect('index')
 
     return render(request, 'product_register.html')
 
